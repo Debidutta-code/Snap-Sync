@@ -22,7 +22,7 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const res = await fetch('http://localhost:8080/login', {
+        const res = await fetch('https://snap-sync-tau.vercel.app/login', {
             method : 'POST',
             headers: { 
                 "Content-Type": "application/json"

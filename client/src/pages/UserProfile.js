@@ -51,7 +51,7 @@ const UserProfile = () => {
       try {
         // Use template literals for URL interpolation
         const response = await fetch(
-          `http://localhost:8080/get-Subscriber-Count-with-user-name/${userProfileClicked}`,
+          `https://snap-sync-tau.vercel.app/get-Subscriber-Count-with-user-name/${userProfileClicked}`,
           {
             method: "GET",
             headers: {
@@ -77,7 +77,7 @@ const UserProfile = () => {
       try {
         // Use template literals for URL interpolation
         const response = await fetch(
-          `http://localhost:8080/get-all-videos-with-user-name/${userProfileClicked}`,
+          `https://snap-sync-tau.vercel.app/get-all-videos-with-user-name/${userProfileClicked}`,
           {
             method: "GET",
             headers: {
@@ -103,7 +103,7 @@ const UserProfile = () => {
       setLoading(true);
       try {
         const response = await fetch(
-          `http://localhost:8080/get-video-count/${userProfileClicked}`,
+          `https://snap-sync-tau.vercel.app/get-video-count/${userProfileClicked}`,
           {
             method: "GET",
             headers: {
@@ -140,7 +140,7 @@ const UserProfile = () => {
       setLoading(true);
       try {
         const response = await fetch(
-          `http://localhost:8080/get-recent-video/${userProfileClicked}`,
+          `https://snap-sync-tau.vercel.app/get-recent-video/${userProfileClicked}`,
           {
             method: "GET",
             headers: {
@@ -179,7 +179,7 @@ const UserProfile = () => {
       try {
         // Use template literals for URL interpolation
         const response = await fetch(
-          `http://localhost:8080/increase-visit-count/${userProfileClicked}`,
+          `https://snap-sync-tau.vercel.app/increase-visit-count/${userProfileClicked}`,
           {
             method: "GET",
             headers: {
@@ -209,7 +209,7 @@ const UserProfile = () => {
     }
   }, [isSubscribed]);
 
-  const baseUrl = "http://localhost:8080/";
+  const baseUrl = "https://snap-sync-tau.vercel.app/";
 
   const fetchSubscriptionStatus = async () => {
     try {
@@ -233,7 +233,7 @@ const UserProfile = () => {
     } else {
       // Extract user id and video owner's user id
       const response = await fetch(
-        `http://localhost:8080/subscribed-to-user-id/${userProfileClicked}`,
+        `https://snap-sync-tau.vercel.app/subscribed-to-user-id/${userProfileClicked}`,
         {
           method: "GET",
           headers: {

@@ -21,7 +21,7 @@ const MyVideos = () => {
     const fetchVideos = async () => {
       setLoading(true); // Set loading state to true when starting fetch
       try {
-        const response = await fetch(`http://localhost:8080/get-my-videos`, {
+        const response = await fetch(`https://snap-sync-tau.vercel.app/get-my-videos`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

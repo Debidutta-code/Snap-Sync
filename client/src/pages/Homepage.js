@@ -14,7 +14,7 @@ const Homepage = () => {
       setLoading(true);
       try {
         const response = await fetch(
-          `http://localhost:8080/get-videos?page=${currentPage}&limit=${videosPerPage}`
+          `https://snap-sync-tau.vercel.app/get-videos?page=${currentPage}&limit=${videosPerPage}`
         );
         if (!response.ok) {
           throw new Error("Failed to fetch videos");

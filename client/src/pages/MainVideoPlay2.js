@@ -45,7 +45,7 @@ const MainVideoPlay2 = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8080/main-video/${videoId}/${userLoggedIn}`,
+          `https://snap-sync-tau.vercel.app/main-video/${videoId}/${userLoggedIn}`,
           {
             method: "GET",
             headers: {
@@ -75,7 +75,7 @@ const MainVideoPlay2 = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        await fetch(`http://localhost:8080/save-to-history`, {
+        await fetch(`https://snap-sync-tau.vercel.app/save-to-history`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -129,7 +129,7 @@ const MainVideoPlay2 = () => {
     if (!userLoggedIn) {
       navigate("/login");
     } else {
-      await fetch("http://localhost:8080/add-to-watch-later", {
+      await fetch("https://snap-sync-tau.vercel.app/add-to-watch-later", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -207,7 +207,7 @@ const MainVideoPlay2 = () => {
     }
   }, [videoData]); // Add videoData as a dependency
 
-  const baseUrl = "http://localhost:8080/";
+  const baseUrl = "https://snap-sync-tau.vercel.app/";
 
   const fetchSubscriptionStatus = async () => {
     // Assuming you have access to both userId and subscriptionId
@@ -311,7 +311,7 @@ const MainVideoPlay2 = () => {
   useEffect(() => {
     const fetchSubscriberCount = async (videoId) => {
       try {
-        const response = await fetch(`http://localhost:8080/getSubscriberCount/${videoId}`);
+        const response = await fetch(`https://snap-sync-tau.vercel.app/getSubscriberCount/${videoId}`);
         if (!response.ok) {
           throw new Error('Failed to fetch subscriber count');
         }

@@ -27,7 +27,7 @@ const Subscriptions = () => {
     setIsLoading(true);
     try {
       const response = await fetch(
-        `http://localhost:8080/subscriptions/${userId}`
+        `https://snap-sync-tau.vercel.app/subscriptions/${userId}`
       );
       if (response.ok) {
         const data = await response.json();
@@ -44,7 +44,7 @@ const Subscriptions = () => {
   const fetchSubscribedUsersVideo = async () => {
     try {
       const response = await fetch(
-        `http://localhost:8080/get-subscribed-videos/${userId}`
+        `https://snap-sync-tau.vercel.app/get-subscribed-videos/${userId}`
       );
       if (response.ok) {
         const data = await response.json();

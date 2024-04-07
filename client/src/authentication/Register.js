@@ -37,7 +37,7 @@ const Register = () => {
 
     try {
       const res = await axios.get(
-        `http://localhost:8080/check-username/${userName}`
+        `https://snap-sync-tau.vercel.app/check-username/${userName}`
       );
       setUsernameAvailable(res.data.available);
       return res.data.available; // Return the availability status
@@ -53,7 +53,7 @@ const Register = () => {
     }
 
     try {
-      const res = await axios.get(`http://localhost:8080/check-email/${email}`);
+      const res = await axios.get(`https://snap-sync-tau.vercel.app//check-email/${email}`);
       setEmailAvailable(res.data.available);
       return res.data.available; // Return the availability status
     } catch (error) {
@@ -180,7 +180,7 @@ const Register = () => {
     };
 
     try {
-      const res = await fetch("http://localhost:8080/register", {
+      const res = await fetch("https://snap-sync-tau.vercel.app//register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -96,7 +96,7 @@ const UploadVideo = () => {
       setThumbnailPreview(null);
       setVideoPreview(null);
 
-      const response = await fetch("http://localhost:8080/upload-video", {
+      const response = await fetch("https://snap-sync-tau.vercel.app/upload-video", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

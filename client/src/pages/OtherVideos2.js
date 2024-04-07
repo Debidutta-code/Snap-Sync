@@ -11,7 +11,7 @@ const OtherVideos2 = () => {
     useEffect(() => {
         const fetchVideos = async () => {
             try {
-                const response = await fetch(`http://localhost:8080/get-videos?page=${1}&limit=${12}`);
+                const response = await fetch(`https://snap-sync-tau.vercel.app/get-videos?page=${1}&limit=${12}`);
                 if (!response.ok) {
                     throw new Error("Failed to fetch videos");
                 }

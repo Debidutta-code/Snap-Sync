@@ -15,7 +15,7 @@ const History = () => {
       setIsLoading(true);
       try {
         const response = await fetch(
-          `http://localhost:8080/get-user-history/${userId}`,
+          `https://snap-sync-tau.vercel.app/get-user-history/${userId}`,
           {
             method: "GET",
             headers: {
@@ -34,7 +34,7 @@ const History = () => {
         const videoDetailsPromises = historyData.history.map(
           async (videoId) => {
             const videoResponse = await fetch(
-              `http://localhost:8080/get-video-details/${videoId}`
+              `https://snap-sync-tau.vercel.app/get-video-details/${videoId}`
             );
             if (!videoResponse.ok) {
               throw new Error(

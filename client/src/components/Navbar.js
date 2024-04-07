@@ -16,7 +16,7 @@ const Navbar = () => {
     useEffect(() => {
         const fetchAvatarImgUrl = async () => {
             try {
-                const response = await fetch(`http://localhost:8080/allusers/${userId}/avatarimg`);
+                const response = await fetch(`https://snap-sync-tau.vercel.app/allusers/${userId}/avatarimg`);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }

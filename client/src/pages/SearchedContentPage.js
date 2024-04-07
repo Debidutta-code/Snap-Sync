@@ -13,7 +13,7 @@ const SearchedContentPage = () => {
     const fetchVideos = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8080/find-searched-content/${searchedItem}`,
+          `https://snap-sync-tau.vercel.app/find-searched-content/${searchedItem}`,
           {
             method: "GET",
             headers: {

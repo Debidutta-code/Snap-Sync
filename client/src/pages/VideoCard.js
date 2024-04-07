@@ -84,7 +84,7 @@ const VideoCard = ({
     if (!userLoggedIn) {
       navigate("/login");
     } else {
-      await fetch("http://localhost:8080/add-to-watch-later", {
+      await fetch("https://snap-sync-tau.vercel.app/add-to-watch-later", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

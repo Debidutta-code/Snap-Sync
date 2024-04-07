@@ -53,7 +53,7 @@ const Register = () => {
     }
 
     try {
-      const res = await axios.get(`https://snap-sync-tau.vercel.app//check-email/${email}`);
+      const res = await axios.get(`https://snap-sync-tau.vercel.app/check-email/${email}`);
       setEmailAvailable(res.data.available);
       return res.data.available; // Return the availability status
     } catch (error) {

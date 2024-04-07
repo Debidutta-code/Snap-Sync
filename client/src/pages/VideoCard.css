@@ -1,0 +1,193 @@
+/* VideoCard.css */
+
+.video-card {
+  margin: 10px; /* Updated margin */
+  padding: 10px; /* Updated padding */
+  box-sizing: border-box; /* Include padding and border in width calculation */
+}
+
+.thumb-container {
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 aspect ratio */
+  position: relative;
+  background-color: #000; /* Black background color */
+}
+
+.thumb-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.profile-image-container {
+  width: 40px; /* Fixed width */
+  height: 40px; /* Fixed height */
+  overflow: hidden;
+  border-radius: 50%;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  
+}
+
+
+.video-details {
+  display: flex;
+  align-items: flex-start;
+  min-width: 200px;
+  margin-top: 10px; /* Moved margin-top from media query */
+}
+
+.video-title {
+  font-size: 17px;
+  font-weight: bold;
+  color: #ffffff; /* You can adjust the color as needed */
+  margin-bottom: 5px;
+  max-height: 3 * 1.2em; /* 1.2em is the line height, adjust as necessary */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Number of lines to show */
+  -webkit-box-orient: vertical;
+}
+
+.video-owner {
+  font-size: 16px;
+  color: #ffffffba; /* You can adjust the color as needed */
+  cursor: pointer;
+}
+
+.skeleton-card {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.skeleton-thumb {
+  width: 250px;
+  height: 141px; /* 16:9 aspect ratio */
+  background-color: #ddd; /* Light gray background */
+  margin-right: 10px;
+}
+
+.skeleton-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.skeleton-profile {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #ddd; /* Light gray background */
+  margin-bottom: 5px;
+}
+
+.skeleton-text {
+  flex: 1;
+  background-color: #ddd; /* Light gray background */
+  margin-bottom: 5px;
+}
+
+.video-title-container {
+  display: flex;
+}
+
+.details {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.video-details:hover .video-card-three-dot {
+  position: relative;
+  display: inline-block;
+}
+
+.video-card-three-dot {
+  margin-left: 10px;
+  margin-right: 0px;
+  font-size: 19px;
+  border-radius: 50px;
+  padding: 5px 8px;
+  padding-right: 2px;
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+  position: relative;
+  display: inline-block;
+}
+
+.menu-item-list {
+  position: absolute;
+  top: calc(0%); /* Position the menu below the three dots */
+  right: 90%;
+  background-color: rgba(40, 33, 33, 0.994); /* Background color of the menu */
+  border: 1px solid #cccccc4b; /* Border color */
+  border-radius: 4px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle lift effect */
+  padding: 5px 0; /* Padding inside the menu */
+  display: none; /* Initially hide the menu */
+  z-index: 1000;
+  width: 700%; /* Adjusted width */
+  color: white;
+}
+
+.video-card-three-dot:hover .menu-item-list,
+.menu-item-list:hover {
+  display: block; /* Show the menu when hovering over the three dots or the menu itself */
+}
+
+.menu-item-list button {
+  border: none; /* Remove button border */
+  background: none; /* Remove background color */
+  padding: 8px 20px; /* Padding inside the button */
+  font-size: 14px; /* Font size */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  display: flex; /* Make buttons block-level elements */
+  width: 100%; /* Full width */
+  text-align: left; /* Align text to the left */
+  color: white;
+  align-items: center;
+  gap: 10px;
+}
+
+.menu-item-list button:hover {
+  background-color: #6462627a; /* Background color on hover */
+}
+
+.video-views-and-uploaded-date-and-time{
+  display: flex;
+  gap: 20px;
+  font-size: 0.9rem;
+  margin-top: 6px;
+  color: rgba(255, 195, 195, 0.469);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+@media (max-width: 768px) {
+  .video-card {
+    margin: 5px; /* Adjusted margin */
+    padding: 5px; /* Adjusted padding */
+  }
+
+  .thumb-container {
+    height: 60%;
+  }
+
+  .profile-image-container {
+    width: 30px; /* Adjusted width */
+    height: 30px; /* Adjusted height */
+  }
+}

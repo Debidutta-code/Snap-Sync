@@ -1,0 +1,252 @@
+.user-profile-main-container {
+    width: 100%;
+    height: 92vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-profile-and-details-section {
+    width: 97%;
+    height: 40%;
+    margin: 1.5%;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+}
+
+.user-profile-all-videos-section {
+    width: 97%;
+    height: 60%;
+    /* background-color: blue; */
+    margin: 1.5%;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.user-profile-image-and-details {
+    padding: 10px;
+    display: flex;
+    margin-left: 30px;
+}
+
+.user-profile-image-container {
+    width: 30vh; /* Adjust as needed */
+    height: 30vh; /* Adjust as needed */
+    border-radius: 50%; /* Makes the image round */
+    overflow: hidden; /* Ensures the image stays within the container */
+}
+
+.user-profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the container */
+}
+
+.user-profile-details-and-subscribe-button-container{
+    display: flex;
+    align-items: flex-start;
+    margin-top: 5px;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+.user-profile-heading-text{
+    font-size: 3rem;
+    font-weight: 800;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+}
+
+.user-profile-subscriber-count-and-video-count{
+    display: flex;
+    gap: 20px;
+    color: rgba(255, 255, 255, 0.604);
+    font-size: 1.3rem;
+    font-weight: 700;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+
+.user-profile-more-about-this-channel{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: rgb(61, 41, 41);
+    color: rgba(255, 255, 255, 0.467);
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 20px 0px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    transition: all 0.3s;
+}
+
+.user-profile-more-about-this-channel:hover{
+    box-shadow: 0 0 5px rgb(152, 205, 255);
+}
+
+.user-profile-subscribe-button{
+    background-color: red;
+    padding: 10px 20px;
+    font-weight: 500;
+    font-size: 18px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+    color: rgba(255, 255, 255, 0.889);
+    border: none;
+    box-shadow: 0 0 5px rgb(255, 136, 136);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.toggle-section-recent-video-and-all-video{
+    display: flex;
+    margin: 0.5%;
+    margin-left: 4%;
+    gap: 10px;
+}
+
+.homediv{
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    cursor: pointer;
+    transition: all 0.1s;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    transition: all 0.1s;
+    text-align: center;
+}
+
+.on-home-container{
+    margin: 2%;
+    width: 96%;
+    margin-top: 0px;
+}
+
+.user-profile-videos-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three columns */
+    grid-gap: 0px; /* Gap between items */
+    min-height: calc(92vh - 60px);
+    max-height: calc(92vh - 60px); /* Adjusted maximum height to account for button-container */
+    /* overflow-y: auto; Add vertical scrollbar when content overflows */
+    color: white;
+    width: 100%;
+    min-width: 100%;
+    scrollbar-color: rgba(255, 255, 255, 0.422) rgba(0, 0, 0, 0); /* Set scrollbar color */
+    scrollbar-width: thin;
+}
+
+.selected{
+    box-shadow: 0 0 5px rgba(205, 154, 255, 0.605);
+    border-bottom: 3px solid rgba(26, 255, 0, 0.568);
+    padding-bottom: 8px;
+}
+
+.loader-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: yellow;
+}
+
+.no-videos-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20vh;
+    color: rgba(255, 255, 255, 0.574);
+}
+
+.user-profile-main-container {
+    position: relative;
+  }
+  
+  .toggle-card-button {
+    margin-top: 20px;
+  }
+  
+  .centered-card {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 60vh;
+    transform: translate(-50%, -50%);
+    background-color: rgb(43, 36, 36); /* Semi-transparent white background */
+    padding: 40px;
+    border: 1px solid rgba(255, 176, 176, 0.387);
+    border-radius: 15px;
+    backdrop-filter: blur(5px); /* Blur effect on the background */
+    z-index: 1000; /* Ensure the card appears on top of other content */
+    color: rgba(255, 255, 255, 0.788);
+  }
+  
+  .card-content {
+    position: relative;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: #ffffff;
+  }
+  
+
+  .main-card-container{
+    margin-top: 30px;
+  }
+
+  .profile-container{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-top: 20px;
+    font-size: 16px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+
+  .user-video-subscribe-button{
+    padding: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    border-radius: 50px;
+    color: white;
+    font-weight: bolder;
+    background-color: rgb(255, 0, 0);
+    transition: all 0.5s;
+    margin-right: 20px;
+    font-size: 17px;
+    border: none;
+    /* transition: all 0.5s; */
+}
+
+.user-video-subscribe-button:hover{
+    background-color: rgba(255, 0, 0, 0.816);
+    cursor: pointer;
+}
+
+.user-subscribed{
+    background-color: rgb(72, 52, 52);
+    box-shadow: 0 0 5px white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-subscribed:hover{
+    background-color: rgb(46, 33, 33);
+}

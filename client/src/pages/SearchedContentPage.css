@@ -1,0 +1,125 @@
+.searched-content-page-main-container{
+    width: 100%;
+    height: 92vh;
+    color: white;
+    overflow-y: auto;
+}
+
+.searched-findings{
+    margin-top: 10px;
+    font-size: 20px;
+    margin-left: 70px;
+    color: rgba(255, 249, 239, 0.448);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.searched-sentence{
+    color: rgba(224, 255, 112, 0.754);
+    font-size: 21px;
+}
+
+.searched-video{
+    display: flex;
+    padding: 10px;
+    margin: 5px;
+    padding-bottom: 5px;
+}
+
+.searched-content-video-list-container{
+    width: auto;
+    height: auto;
+    margin: 30px;
+    margin-top: 0px;
+    padding: 20px;
+}
+
+.searched-thumbnail img{
+    width: 420px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 20px;
+    cursor: pointer;
+
+}
+
+.searched-thumbnail{
+    border-radius: 20px;
+}
+
+.searched-video-details{
+    margin-left: 20px;
+}
+
+.searched-title {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2; /* Number of lines to show */
+    font-size: 25px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgba(255, 255, 255, 0.821);
+    margin-bottom: 10px;
+}
+
+
+.searched-video-owner-and-views{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.searched-video-owner-and-views p{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgba(180, 180, 180, 0.994);
+    font-weight: 900;
+    font-size: 20px;
+}
+
+.searched-views-and-date-posted{
+    display: flex;
+    gap: 15px;
+    color: rgba(255, 255, 255, 0.527);
+    font-size: 16px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-bottom: 15px;
+}
+
+.searched-video-owner-image-container{
+    display: flex;
+    align-items: center;
+}
+
+.searched-owner-image{
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+}
+
+.searched-video-description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2; /* Number of lines to show */
+    color: rgba(255, 255, 255, 0.58);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 17px;
+}
+
+.searched-no-videos-message{
+    text-align: center;
+    margin-top: 35vh;
+}
+
+.search-keep-exploring{
+    text-decoration: underline;
+    color: rgb(78, 166, 255);
+}
+
+.search-keep-exploring:hover{
+    color: rgb(13, 111, 231);
+}

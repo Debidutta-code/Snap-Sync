@@ -1,0 +1,97 @@
+
+.container{
+    display: flex;
+    scrollbar-width: none;
+    overflow: hidden;
+}   
+
+main{
+    scrollbar-width: none;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.900);
+    height: 92vh;
+    transition: all 0.3s;
+}
+
+.sidebar{
+    transition: all 0.3s;
+    background-color: rgba(0, 0, 0, 0.900);
+    color: white;
+    height: 92vh;
+    transition: all 0.5s;
+    scrollbar-width: none;
+}
+
+.top_section{
+    display: flex;
+    align-items: center;
+    padding: 20px 15px;
+}
+
+.logo{
+    font-size: 20px;
+}
+
+.bars{
+    display: flex;
+    font-size: 20px;
+    margin-left: 50px;
+    cursor: pointer;
+    transition: ease-out 0.5s;
+}
+
+.link{
+    display: flex;
+    color: white;
+    padding: 10px 15px;
+    gap: 15px;
+    align-items: center;
+}
+
+.link:hover{
+    background-color: rgba(0, 0, 0, 0.950);
+    color: white;
+    transition: all 0.5s;
+    border-radius: 10px;
+}
+
+.active{
+    background-color: rgba(0, 0, 0, 0.950);
+    color: white;
+    border-radius: 10px;
+}
+
+.icon{
+    font-size: 25px;
+}
+
+.link_text {
+    transition: all 0.5;
+    font-size: 1rem;
+}
+
+.children-class{
+    min-width: 70%;
+}
+
+.sidebar-contact-links{
+    padding: 20px 15px;
+    height: 31vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-evenly;
+    transition: all 0.5s;
+}
+
+.sidebar-contact-links a{
+    color: white;
+    text-decoration: none;
+    font-size: 25px;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        display: none;
+    }
+}
+  

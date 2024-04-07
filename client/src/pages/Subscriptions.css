@@ -1,0 +1,123 @@
+.subscription-main-container{
+    width: 100%;
+    height: 92vh;
+    max-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.subscription-videos-main-container{
+    width: 100%;
+    height: 67vh;
+    overflow-y: auto;
+    scrollbar-width: none;
+    background-color: rgba(15, 0, 0, 0.483);
+    border-radius: 20px;
+    margin-top: 10px;
+}
+
+.subscription-artist-image{
+    width: 14vh;
+    height: 14vh;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.subscription-artists-logo-and-details-container{
+    display: flex;
+    margin: 5px;
+    padding: 10px 0px;
+}
+
+.subscription-artists-profile{
+    width: 25vh;
+    height: auto;
+    padding-left: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.subscription-artist-details{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.subscription-artist-name-text{
+    font-size: 18px;
+    font-weight: bolder;
+    color: rgb(231, 174, 174);
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.subscription-artist-hashtag-text{
+    font-size: 17px;
+    color: rgba(255, 225, 225, 0.532);
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.subscription-artists-subscriber-count-text{
+    font-size: 17px;
+    color: rgba(255, 255, 255, 0.354);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.no-videos-found-error{
+    color: rgba(255, 255, 255, 0.694);
+    font-size: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+.subscription-videos-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three columns */
+    grid-gap: 0px; /* Gap between items */
+    min-height: calc(92vh - 60px);
+    max-height: calc(92vh - 60px); /* Adjusted maximum height to account for button-container */
+    /* overflow-y: auto; Add vertical scrollbar when content overflows */
+    color: white;
+    width: 100%;
+    min-width: 100%;
+    scrollbar-width: thin; /* Set scrollbar width */
+    scrollbar-color: rgba(255, 255, 255, 0.309) rgba(0, 0, 0, 0); /* Set scrollbar color */
+}
+
+.subscription-artists-main-container {
+    width: 98%;
+    height: auto;
+    overflow: auto;
+    display: flex;
+    background-color: rgba(0, 0, 44, 0.265);
+    border-radius: 30px;
+    padding: 0px 10px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.415);
+    padding-left: 0px;
+    margin-top: 1%;
+}
+
+/* Change scrollbar color */
+.subscription-artists-main-container::-webkit-scrollbar {
+    width: 0px;
+}
+
+.subscription-artists-main-container::-webkit-scrollbar-thumb {
+    cursor: e-resize;
+    background-color: rgba(89, 74, 74, 0.236); /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Rounded corners of the scrollbar thumb */
+    width: 0px; /* Set the width to 0px */
+}

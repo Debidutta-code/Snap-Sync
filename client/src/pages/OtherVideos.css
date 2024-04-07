@@ -1,0 +1,59 @@
+.otherVideos-container {
+  margin-top: 20px;
+}
+
+.boxy-videos {
+  display: grid;
+  grid-template-columns: 1fr 3fr; /* Three columns */
+  align-items: start; /* Adjusted alignment */
+  margin-bottom: 20px;
+  margin-left: -10px;
+}
+
+.otherVideos-video-container {
+  width: 180px; /* Changed max-width to width */
+  height: 110px; /* Adjusted height */
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.otherVideos-image-tag {
+  width: 100%; /* Adjusted width */
+  height: 100%; /* Adjusted height */
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.otherVideos-text-container {
+  margin-left: 20px;
+}
+
+.otherVideos-video-title {
+  margin: 0; /* Combine margin-top and margin-bottom */
+  font-size: 16px;
+  font-weight: bold; /* Corrected typo */
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limit to two lines */
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  max-width: calc(50ch + 20px); /* Adjust width based on character limit */
+}
+
+.otherVideos-video-info h4 {
+  margin: 0; /* Combine margin-top and margin-bottom */
+  margin-bottom: 5px;
+  color: rgba(255, 255, 255, 0.737);
+}
+
+.otherVideos-views-and-datePosted {
+  display: flex;
+  align-items: center;
+}
+
+.otherVideos-views,
+.otherVideos-date-posted {
+  margin-right: 10px;
+  font-size: 14px;
+  color: #d7d6d6;
+}

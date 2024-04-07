@@ -1,0 +1,107 @@
+
+
+.histroy-main-container{
+    max-height: 92vh;
+    width: 100%;
+    display: flex;
+    color: rgba(255, 255, 255, 0.841);
+    justify-content: center;
+    overflow-y: auto;
+    scrollbar-width: none;
+    
+}
+
+.history-video-container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2fr 5fr;/* Three columns */
+    margin-top: 20px;
+}
+
+.history-heading {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: rgb(204, 222, 112);
+    font-weight: 200;
+    font-size: 1.4rem;
+    text-align: center;
+    border-radius: 30px;
+    background-color: rgba(54, 37, 37, 0.537);
+    margin-top: 10px;
+}
+
+.history-heading-text{
+    display: inline; /* or display: inline-block; */
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: auto;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+
+.history-video-details{
+    max-width: 650px;
+    padding-left: 20px;
+
+}
+
+.history-thumbnail{
+    overflow: hidden;
+}
+
+.history-image{
+    border-radius: 20px;
+    width: 280px;
+    height: 155px;
+    object-fit: cover;
+}
+
+.history-video-title {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 7px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limit to 2 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+
+.history-video-owner-and-views{
+    display: flex;
+    margin-bottom: 15px;
+    align-items: center;
+}
+
+.history-video-owner{
+    color: rgba(255, 223, 223, 0.76);
+    margin-right: 20px;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.history-video-views{
+    color : rgba(255, 227, 227, 0.621);
+    font-weight: 300;
+    font-size: 15px;
+}
+
+.history-video-description {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Limit to 2 lines */
+    -webkit-box-orient: vertical;
+}
+
+.history-video-description-text {
+    font-size: 14px;
+    font-weight: 100;
+    margin-bottom: 10px;
+    color: rgba(255, 255, 255, 0.441);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.loading-animation{
+    margin-top: 40vh;
+  }

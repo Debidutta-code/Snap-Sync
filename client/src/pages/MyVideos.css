@@ -1,0 +1,45 @@
+.my-videos-homepage-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.my-videos-videos-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three columns */
+    grid-gap: 0px; /* Gap between items */
+    min-height: calc(92vh);
+    max-height: calc(92vh - 60px); /* Adjusted maximum height to account for button-container */
+    overflow-y: auto; /* Add vertical scrollbar when content overflows */
+    color: white;
+    width: 100%;
+    min-width: 100%;
+    scrollbar-width: thin; /* Set scrollbar width */
+    scrollbar-color: rgba(255, 255, 255, 0.5) rgba(0, 0, 0, 0); /* Set scrollbar color */
+}
+
+.no-videos-message {
+    font-size: 18px;
+    color: #ffe8e8;
+    margin-top: 40vh;
+  }
+
+  .loading-animation{
+    margin-top: 40vh;
+  }
+
+  .upload-here-button{
+    text-decoration: underline;
+    color: rgb(157, 201, 248);
+  }
+  .upload-here-button:hover{
+    color: rgb(138, 150, 255);
+  }
+
+@media (max-width: 768px) {
+    .my-videos-videos-list {
+        display: flex;
+        flex-direction: column; /* Switch to column layout */
+        align-items: center; /* Center items vertically */
+    }
+}

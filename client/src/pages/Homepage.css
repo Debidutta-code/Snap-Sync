@@ -1,0 +1,64 @@
+.homepage-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.videos-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three columns */
+    grid-gap: 0px; /* Gap between items */
+    min-height: calc(92vh - 60px);
+    max-height: calc(92vh - 60px); /* Adjusted maximum height to account for button-container */
+    overflow-y: auto; /* Add vertical scrollbar when content overflows */
+    color: white;
+    width: 100%;
+    min-width: 100%;
+    scrollbar-color: rgba(255, 255, 255, 0.422) rgba(0, 0, 0, 0); /* Set scrollbar color */
+    scrollbar-width: thin;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 7.5px;
+    width: 100%; /* Set width to 100% to ensure it stretches across */
+    align-items: center;
+}
+
+.page-button {
+    margin: 0 5px;
+    padding: 14px 60px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s;
+    font-size: 15px;
+}
+
+.page-button:hover {
+    background-color: #45a049;
+}
+
+.page-button:disabled {
+    background-color: #aaaaaa;
+    cursor: not-allowed;
+}
+
+.home-no-videos-message {
+    font-size: 18px;
+    color: #ffe8e8;
+    margin-top: 40vh;
+  }
+
+@media (max-width: 768px) {
+    .videos-list {
+        display: flex;
+        flex-direction: column; /* Switch to column layout */
+        align-items: center; /* Center items vertically */
+    }
+}

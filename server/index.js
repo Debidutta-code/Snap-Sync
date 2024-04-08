@@ -672,6 +672,72 @@ app.get('/increase-visit-count/:username', async (req, res) => {
   }
 });
 
+app.post("/set-like-count/:videoId", async (req, res) => {
+  try {
+      const { videoId } = req.params;
+      const { action } = req.body; // Extract action from the request body
+
+      // Find the video by ID
+      const video = await VideoData.findOne({ _id: videoId });
+
+      // If the video is not found, return a 404 error
+      if (!video) {
+          return res.status(404).json({ success: false, message: "Video not found" });
+      }
+
+      // Increment or decrement the like count based on the action
+      if (action === "like") {
+          video.likeCount++;
+      } else if (action === "unlike") {
+          video.likeCount--;
+      } else {
+          return res.status(400).json({ success: false, message: "Invalid action" });
+      }
+
+      // Save the updated video
+      await video.save();
+
+      // Send a success response
+      res.json({ success: true, message: "Like count updated successfully" });
+  } catch (error) {
+      console.error("Error updating like count:", error.message);
+      // Send a 500 error response
+      res.status(500).json({ success: false, message: "Internal Server Error" });
+  }
+});
+
+
+app.get("/set-dislike-count/:videoId/:trueOrFalse", async (req, res) => {
+  try {
+    const { videoId, trueOrFalse } = req.params;
+    
+    // Find the video by ID
+    const video = await VideoData.findOne({ _id: videoId });
+
+    // If the video is not found, return a 404 error
+    if (!video) {
+      return res.status(404).json({ success: false, message: "Video not found" });
+    }
+
+    // Increment or decrement the dislike count based on trueOrFalse parameter
+    if (trueOrFalse === 'true') {
+      video.disLikeCount++;
+    } else {
+      video.disLikeCount--;
+    }
+
+    // Save the updated video
+    await video.save();
+
+    // Send a success response
+    res.json({ success: true, message: "Dislike count updated successfully" });
+  } catch (error) {
+    console.error("Error updating dislike count:", error.message);
+    // Send a 500 error response
+    res.status(500).json({ success: false, message: "Internal Server Error" });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Server started at ${PORT}`);
 });

@@ -97,33 +97,84 @@ const MainVideoPlay2 = () => {
     }
   }, [userLoggedIn]);
 
-  const handleLikeCount = () => {
+  const handleLikeCount = async () => {
     if (!likedorNot) {
       if (dislikedorNot) {
         setDislikedorNot(false);
         setdisLikeCount(dislikeCount - 1);
+        await fetch(
+          `https://snap-sync-tau.vercel.app/set-dislike-count/${videoId}/false`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
       }
       setLikeCount(likeCount + 1);
       setLikedOrNot(true);
+
+      await fetch(`https://snap-sync-tau.vercel.app/set-like-count/${videoId}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ action: "like" }), // Send like action in the body
+      });
     } else {
       setLikeCount(likeCount - 1);
       setLikedOrNot(false);
+      await fetch(`https://snap-sync-tau.vercel.app/set-like-count/${videoId}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ action: "unlike" }), // Send unlike action in the body
+      });
     }
   };
 
-  const handleDislikeCount = () => {
+  const handleDislikeCount = async () => {
     if (!dislikedorNot) {
       if (likedorNot) {
         setLikeCount(likeCount - 1);
         setLikedOrNot(false);
+        await fetch(`https://snap-sync-tau.vercel.app/set-like-count/${videoId}`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ action: "unlike" }), // Send unlike action in the body
+        });
       }
       setDislikedorNot(true);
       setdisLikeCount(dislikeCount + 1);
+  
+      await fetch(
+        `https://snap-sync-tau.vercel.app/set-dislike-count/${videoId}/true`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
     } else {
       setDislikedorNot(false);
       setdisLikeCount(dislikeCount - 1);
+      await fetch(
+        `https://snap-sync-tau.vercel.app/set-dislike-count/${videoId}/false`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
     }
   };
+
 
   const handleWatchLaterClicked = async () => {
     if (!userLoggedIn) {
@@ -362,6 +413,12 @@ const MainVideoPlay2 = () => {
     setUserProfileClicked(username);
     setUserProfileImage(avatarimgUrl);
   }
+
+  useEffect(() => {
+    console.log(videoData);
+    setLikeCount(videoData.likeCount);
+    setdisLikeCount(videoData.disLikeCount);
+  }, [videoData.likeCount, videoData.disLikeCount])
 
   const description = videoData.description || "";
   const formattedDescription = addLineBreaks(description, 106);

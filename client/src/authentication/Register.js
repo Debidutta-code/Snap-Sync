@@ -180,7 +180,7 @@ const Register = () => {
     };
 
     try {
-      const res = await fetch("https://snap-sync-tau.vercel.app//register", {
+      const res = await fetch("https://snap-sync-tau.vercel.app/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

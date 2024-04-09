@@ -46,6 +46,8 @@ main{
     padding: 10px 15px;
     gap: 15px;
     align-items: center;
+    transition: all 0.2s;
+    max-width: 130px;
 }
 
 .link:hover{
@@ -68,6 +70,9 @@ main{
 .link_text {
     transition: all 0.5;
     font-size: 1rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: flex;
+    align-items: center;
 }
 
 .children-class{

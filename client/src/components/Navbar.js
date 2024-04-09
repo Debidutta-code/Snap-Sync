@@ -58,7 +58,7 @@ const Navbar = () => {
       <div className="yt-logo nav-item">
         <img src={ytLogo} alt="YouTube Logo" className="yt-logo-icon" />{" "}
         {/* Use imported image */}
-        <h2 className="yt-text">CloneTube</h2>
+        <h2 className="yt-text">Snap Sync</h2>
       </div>
       <div className="search nav-item">
         <input type="text" className="search-input" placeholder="search" onChange={handleSearchChanged}/>

@@ -88,7 +88,7 @@ const Sidebar = ({ children }) => {
             <div
               style={{
                 opacity: isOpen ? 1 : 0.5,
-                display: isOpen && hasOpened ? "block" : "none"
+                display: isOpen && hasOpened ? "block" : "none",
               }}
               className="link_text"
             >

@@ -173,13 +173,20 @@ const shuffleArray = (array) => {
 
 app.get("/get-videos", async (req, res) => {
   try {
-    const page = parseInt(req.query.page) || 1; // Default to page 1 if page parameter is not provided
-    const startIndex = (page - 1) * videosPerPage;
+    const page = parseInt(req.query.page);
+    const limit = parseInt(req.query.limit);
+    const startIndex = (page - 1) * limit;
 
-    // Fetch videos for the requested page
-    const videos = await VideoData.find().skip(startIndex).limit(videosPerPage);
+    // Fetch all videos
+    const allVideos = await VideoData.find();
 
-    res.json(videos);
+    // Shuffle the array of videos
+    const shuffledVideos = shuffleArray(allVideos);
+
+    // Get the videos for the requested page
+    const videosForPage = shuffledVideos.slice(startIndex, startIndex + limit);
+
+    res.json(videosForPage);
   } catch (error) {
     console.error(error);
     res.status(500).json({ success: false, message: "Internal Server Error" });

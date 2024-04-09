@@ -5,8 +5,8 @@ import { PropagateLoader } from "react-spinners"; // Importing PropagateLoader
 
 const Homepage = () => {
   const [allVideos, setAllVideos] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
+  const [loading, setLoading] = useState(true);
   const videosPerPage = 9;
 
   useEffect(() => {
@@ -20,7 +20,7 @@ const Homepage = () => {
           throw new Error("Failed to fetch videos");
         }
         const data = await response.json();
-        setAllVideos(prevVideos => [...prevVideos, ...data]); // Stack new videos with previous ones
+        setAllVideos(data);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching videos:", error.message);
@@ -31,8 +31,14 @@ const Homepage = () => {
     fetchVideos();
   }, [currentPage]);
 
-  const handleNextClick = () => {
-    setCurrentPage(prevPage => prevPage + 1);
+  const handleNextClick = async () => {
+    setCurrentPage((prevPage) => prevPage + 1);
+  };
+
+  const handlePreviousClick = () => {
+    if (currentPage > 1) {
+      setCurrentPage((prevPage) => prevPage - 1);
+    }
   };
 
   return (
@@ -68,8 +74,27 @@ const Homepage = () => {
 
       {!loading && allVideos.length > 0 && (
         <div className="button-container">
+          <button
+            className="page-button"
+            onClick={handlePreviousClick}
+            disabled={currentPage === 1}
+          >
+            Prev
+          </button>
           <button className="page-button" onClick={handleNextClick}>
-            Load More
+            Next
+          </button>
+        </div>
+      )}
+
+      {!loading && allVideos.length == 0 && currentPage > 1 && (
+        <div className="button-container">
+          <button
+            className="page-button"
+            onClick={handlePreviousClick}
+            disabled={currentPage === 1}
+          >
+            Go Back
           </button>
         </div>
       )}

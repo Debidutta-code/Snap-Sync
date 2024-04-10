@@ -14,7 +14,7 @@ const UploadVideo = () => {
   const [description, setDescription] = useState("");
   const [loading, setLoading] = useState(false);
   const [isUploaded, setIsUploaded] = useState(false);
-  const [alertMessage, setAlertMessage] = useState("Your Video Uploaded Successfully");
+  const [alertMessage, setAlertMessage] = useState("Uploaded Successfully");
 
   const { userLoggedIn, userId, userName, avatarUrl } = useVideo();
   const navigate = useNavigate();

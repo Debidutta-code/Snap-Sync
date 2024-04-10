@@ -53,7 +53,9 @@ const Register = () => {
     }
 
     try {
-      const res = await axios.get(`https://snap-sync-tau.vercel.app/check-email/${email}`);
+      const res = await axios.get(
+        `https://snap-sync-tau.vercel.app/check-email/${email}`
+      );
       setEmailAvailable(res.data.available);
       return res.data.available; // Return the availability status
     } catch (error) {
@@ -169,7 +171,6 @@ const Register = () => {
       return;
     }
 
-
     const avatarimgUrl = await uploadFile("image");
 
     const formData = {
@@ -219,130 +220,136 @@ const Register = () => {
             />
           </div>
         )}
-        {registrationSuccess && (
+        {registrationSuccess ? (
           <ShowAlert
-            message="Your Account Created Successfully"
+            message="Successfully Registered!"
             onClose={handleOkClick}
           />
-        )}
-        <div className="register-content">
-          <h2 className="register-heading">Create an Account</h2>
-          <form className="register-form" onSubmit={handleSubmit}>
-            <div className="register-form-group-avatar">
-              <label htmlFor="avatar" className="avatar-label">
-                <img src={avatar} alt="Avatar" className="avatar-image" />
-              </label>
-              <input
-                type="file"
-                id="avatar"
-                name="avatar"
-                accept="image/*"
-                className="register-input-avatar"
-                onChange={handleAvatar}
-              />
-              <h2 className="choose-avatar">Choose Avatar</h2>
-            </div>
-
-            <div className="register-form-group">
-              <label htmlFor="username" className="register-label">
-                Username
-              </label>
-              <input
-                type="text"
-                id="username"
-                name="username"
-                className={`register-input ${
-                  !usernameAvailable && "unavailable"
-                }`}
-                placeholder="Enter your username"
-                required
-                value={userName}
-                onChange={handleUsername}
-                onBlur={checkUsernameAvailability}
-              />
-            </div>
-            {!usernameAvailable && (
-              <span className="availability-message">
-                Username Already Exists
-              </span>
-            )}
-
-            <div className="register-form-group">
-              <label htmlFor="email" className="register-label">
-                Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                className={`register-input ${!emailAvailable && "unavailable"}`}
-                placeholder="Enter your email"
-                required
-                onChange={handleEmail}
-                onBlur={checkEmailAvailability}
-              />
-            </div>
-            {!emailAvailable && (
-              <span className="availability-message">
-                This Email Already Exists
-              </span>
-            )}
-
-            <div className="register-form-group register-form-group-password">
-              <label htmlFor="password" className="register-label">
-                Password
-              </label>
-              <div className="password-input-container">
+        ) : (
+          <div className="register-content">
+            <h2 className="register-heading">Create an Account</h2>
+            <form className="register-form" onSubmit={handleSubmit}>
+              {/* Your form JSX goes here */}
+              <div className="register-form-group-avatar">
+                <label htmlFor="avatar" className="avatar-label">
+                  <img src={avatar} alt="Avatar" className="avatar-image" />
+                </label>
                 <input
-                  type={showPassword ? "text" : "password"}
-                  id="password"
-                  name="password"
-                  className="register-input"
-                  placeholder="Enter your password"
-                  required
-                  value={password}
-                  onChange={handlePassword}
+                  type="file"
+                  id="avatar"
+                  name="avatar"
+                  accept="image/*"
+                  className="register-input-avatar"
+                  onChange={handleAvatar}
                 />
-                <button
-                  type="button"
-                  className="password-toggle-btn"
-                  onClick={() => setShowPassword(!showPassword)}
-                >
-                  {showPassword ? <FaEye /> : <FaEyeSlash />}
-                </button>
+                <h2 className="choose-avatar">Choose Avatar</h2>
               </div>
-              <div className="password-requirements">
-                <ul>
-                  {passwordRequirements.map((requirement, index) => (
-                    <li key={index} className="password-requirement">
-                      {requirement}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
 
-            <button
-              type="submit"
-              className={`register-button ${
-                !usernameAvailable || !emailAvailable ? "no-drop" : ""
-              }`}
-              disabled={loading || !usernameAvailable || !emailAvailable}
-              style={{
-                cursor:
-                  !usernameAvailable || !emailAvailable ? "no-drop" : "pointer",
-              }}
-            >
-              {loading ? "Loading..." : "Register"}
-            </button>
-          </form>
-          <p className="register-login-link">
-            Already have an account?{" "}
-            <Link to="/login" className="register-login-link-a">
-              Login
-            </Link>
-          </p>
-        </div>
+              <div className="register-form-group">
+                <label htmlFor="username" className="register-label">
+                  Username
+                </label>
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  className={`register-input ${
+                    !usernameAvailable && "unavailable"
+                  }`}
+                  placeholder="Enter your username"
+                  required
+                  value={userName}
+                  onChange={handleUsername}
+                  onBlur={checkUsernameAvailability}
+                />
+              </div>
+              {!usernameAvailable && (
+                <span className="availability-message">
+                  Username Already Exists
+                </span>
+              )}
+
+              <div className="register-form-group">
+                <label htmlFor="email" className="register-label">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  className={`register-input ${
+                    !emailAvailable && "unavailable"
+                  }`}
+                  placeholder="Enter your email"
+                  required
+                  onChange={handleEmail}
+                  onBlur={checkEmailAvailability}
+                />
+              </div>
+              {!emailAvailable && (
+                <span className="availability-message">
+                  This Email Already Exists
+                </span>
+              )}
+
+              <div className="register-form-group register-form-group-password">
+                <label htmlFor="password" className="register-label">
+                  Password
+                </label>
+                <div className="password-input-container">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    id="password"
+                    name="password"
+                    className="register-input"
+                    placeholder="Enter your password"
+                    required
+                    value={password}
+                    onChange={handlePassword}
+                  />
+                  <button
+                    type="button"
+                    className="password-toggle-btn"
+                    onClick={() => setShowPassword(!showPassword)}
+                  >
+                    {showPassword ? <FaEye /> : <FaEyeSlash />}
+                  </button>
+                </div>
+                <div className="password-requirements">
+                  <ul>
+                    {passwordRequirements.map((requirement, index) => (
+                      <li key={index} className="password-requirement">
+                        {requirement}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                className={`register-button ${
+                  !usernameAvailable || !emailAvailable ? "no-drop" : ""
+                }`}
+                disabled={loading || !usernameAvailable || !emailAvailable}
+                style={{
+                  cursor:
+                    !usernameAvailable || !emailAvailable
+                      ? "no-drop"
+                      : "pointer",
+                }}
+              >
+                {loading ? "Loading..." : "Register"}
+              </button>
+            </form>
+            <p className="register-login-link">
+              Already have an account?{" "}
+              <Link to="/login" className="register-login-link-a">
+                Login
+              </Link>
+            </p>
+          </div>
+        )}
       </div>
     </>
   );

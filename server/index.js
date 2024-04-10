@@ -177,14 +177,8 @@ app.get("/get-videos", async (req, res) => {
     const limit = parseInt(req.query.limit);
     const startIndex = (page - 1) * limit;
 
-    // Fetch all videos
-    const allVideos = await VideoData.find();
-
-    // Shuffle the array of videos
-    const shuffledVideos = shuffleArray(allVideos);
-
-    // Get the videos for the requested page
-    const videosForPage = shuffledVideos.slice(startIndex, startIndex + limit);
+    // Fetch videos for the requested page using skip and limit
+    const videosForPage = await VideoData.find().skip(startIndex).limit(limit);
 
     res.json(videosForPage);
   } catch (error) {

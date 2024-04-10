@@ -123,3 +123,10 @@
 .search-keep-exploring:hover{
     color: rgb(13, 111, 231);
 }
+
+.loading-animation-spinner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30vh;
+}

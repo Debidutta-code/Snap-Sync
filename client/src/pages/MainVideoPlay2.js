@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import "./MainVideoPlay.css"; // Import CSS file
-import { BiLike, BiDislike } from "react-icons/bi";
+import { BiLike, BiDislike, BiSolidLike, BiSolidDislike } from "react-icons/bi";
 import { IoMdDownload } from "react-icons/io";
 import { useVideo } from "./VideoContext";
 import OtherVideos2 from "./OtherVideos2";
@@ -472,7 +472,7 @@ const MainVideoPlay2 = () => {
                 style={{ backgroundColor: likedorNot ? "black" : "" }}
               >
                 <div className="video-like-icon">
-                  <BiLike />
+                {!likedorNot ? <BiLike /> : <BiSolidLike />}
                 </div>
                 <div className="video-like-count">{likeCount} </div>
               </div>
@@ -485,7 +485,7 @@ const MainVideoPlay2 = () => {
                 style={{ backgroundColor: dislikedorNot ? "black" : "" }}
               >
                 <div className="video-dislike-icon">
-                  <BiDislike />
+                {!dislikedorNot ? <BiDislike /> : <BiSolidDislike />}
                 </div>
                 <div className="video-like-count">{dislikeCount} </div>
               </div>

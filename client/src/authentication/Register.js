@@ -150,6 +150,7 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     // Check username availability
     const isUsernameAvailable = await checkUsernameAvailability();
@@ -168,7 +169,6 @@ const Register = () => {
       return;
     }
 
-    setLoading(true);
 
     const avatarimgUrl = await uploadFile("image");
 

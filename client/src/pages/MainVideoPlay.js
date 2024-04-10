@@ -10,10 +10,17 @@ import Linkify from "react-linkify";
 import { MdOutlineWatchLater } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { RxCross2 } from "react-icons/rx";
+import { BiSolidLike } from "react-icons/bi";
+import { BiSolidDislike } from "react-icons/bi";
 // const videoUrl = require("../assets/demovideo.mp4");
 
 const CustomAnchorTag = ({ href, children }) => (
-  <a href={href} target="_blank" rel="noopener noreferrer" className="custom-anchor-tag-description">
+  <a
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="custom-anchor-tag-description"
+  >
     {children}
   </a>
 );
@@ -26,8 +33,16 @@ const addLineBreaks = (text, maxLength) => {
 };
 
 const MainVideoPlay = () => {
-  const { videoUrl, videoTitle, videoId, userLoggedIn, userId, setVideoUrl, setUserProfileImage, setUserProfileClicked } =
-    useVideo();
+  const {
+    videoUrl,
+    videoTitle,
+    videoId,
+    userLoggedIn,
+    userId,
+    setVideoUrl,
+    setUserProfileImage,
+    setUserProfileClicked,
+  } = useVideo();
 
   const [likeCount, setLikeCount] = useState(0);
   const [likedorNot, setLikedOrNot] = useState(false);
@@ -93,7 +108,7 @@ const MainVideoPlay = () => {
     if (userLoggedIn) {
       fetchData();
     } else {
-      // console.log("User is not logged in, skipping data fetch"); 
+      // console.log("User is not logged in, skipping data fetch");
       return;
     }
   }, [userLoggedIn]);
@@ -116,23 +131,29 @@ const MainVideoPlay = () => {
       setLikeCount(likeCount + 1);
       setLikedOrNot(true);
 
-      await fetch(`https://snap-sync-tau.vercel.app/set-like-count/${videoId}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ action: "like" }), // Send like action in the body
-      });
+      await fetch(
+        `https://snap-sync-tau.vercel.app/set-like-count/${videoId}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ action: "like" }), // Send like action in the body
+        }
+      );
     } else {
       setLikeCount(likeCount - 1);
       setLikedOrNot(false);
-      await fetch(`https://snap-sync-tau.vercel.app/set-like-count/${videoId}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ action: "unlike" }), // Send unlike action in the body
-      });
+      await fetch(
+        `https://snap-sync-tau.vercel.app/set-like-count/${videoId}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ action: "unlike" }), // Send unlike action in the body
+        }
+      );
     }
   };
 
@@ -141,17 +162,20 @@ const MainVideoPlay = () => {
       if (likedorNot) {
         setLikeCount(likeCount - 1);
         setLikedOrNot(false);
-        await fetch(`https://snap-sync-tau.vercel.app/set-like-count/${videoId}`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ action: "unlike" }), // Send unlike action in the body
-        });
+        await fetch(
+          `https://snap-sync-tau.vercel.app/set-like-count/${videoId}`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ action: "unlike" }), // Send unlike action in the body
+          }
+        );
       }
       setDislikedorNot(true);
       setdisLikeCount(dislikeCount + 1);
-  
+
       await fetch(
         `https://snap-sync-tau.vercel.app/set-dislike-count/${videoId}/true`,
         {
@@ -175,7 +199,6 @@ const MainVideoPlay = () => {
       );
     }
   };
-
 
   const handleWatchLaterClicked = async () => {
     if (!userLoggedIn) {
@@ -361,9 +384,11 @@ const MainVideoPlay = () => {
   useEffect(() => {
     const fetchSubscriberCount = async (videoId) => {
       try {
-        const response = await fetch(`https://snap-sync-tau.vercel.app/getSubscriberCount/${videoId}`);
+        const response = await fetch(
+          `https://snap-sync-tau.vercel.app/getSubscriberCount/${videoId}`
+        );
         if (!response.ok) {
-          throw new Error('Failed to fetch subscriber count');
+          throw new Error("Failed to fetch subscriber count");
         }
         const data = await response.json();
         setSubscriberCount(data.subscriberCount);
@@ -411,13 +436,13 @@ const MainVideoPlay = () => {
     console.log(videoData);
     setLikeCount(videoData.likeCount);
     setdisLikeCount(videoData.disLikeCount);
-  }, [videoData.likeCount, videoData.disLikeCount])
+  }, [videoData.likeCount, videoData.disLikeCount]);
 
   const profileClicked = (username, avatarimgUrl) => {
-    navigate('/user-profile');
+    navigate("/user-profile");
     setUserProfileClicked(username);
     setUserProfileImage(avatarimgUrl);
-  }
+  };
 
   const description = videoData.description || "";
   const formattedDescription = addLineBreaks(description, 106);
@@ -437,7 +462,12 @@ const MainVideoPlay = () => {
         <div className="video-like-share-container">
           <div className="like-share-container1">
             <div className="video-creator-name-and-image">
-              <div className="video-channel-image"  onClick={() => profileClicked(videoData.userName, videoData.avatarUrl)}>
+              <div
+                className="video-channel-image"
+                onClick={() =>
+                  profileClicked(videoData.userName, videoData.avatarUrl)
+                }
+              >
                 <img
                   src={videoData.avatarUrl}
                   alt="Y"
@@ -445,7 +475,12 @@ const MainVideoPlay = () => {
                 />{" "}
               </div>
               <div className="video-creater-info">
-                <div className="video-owner"  onClick={() => profileClicked(videoData.userName, videoData.avatarUrl)}>
+                <div
+                  className="video-owner"
+                  onClick={() =>
+                    profileClicked(videoData.userName, videoData.avatarUrl)
+                  }
+                >
                   <h3 className="video-creator-name">{videoData.userName}</h3>
                 </div>
                 <div className="video-ownersubs">
@@ -471,8 +506,9 @@ const MainVideoPlay = () => {
                 style={{ backgroundColor: likedorNot ? "black" : "" }}
               >
                 <div className="video-like-icon">
-                  <BiLike />
+                  {!likedorNot ? <BiLike /> : <BiSolidLike />}
                 </div>
+
                 <div className="video-like-count">{likeCount} </div>
               </div>
               {/* <div className="video-separates-button">
@@ -484,7 +520,8 @@ const MainVideoPlay = () => {
                 style={{ backgroundColor: dislikedorNot ? "black" : "" }}
               >
                 <div className="video-dislike-icon">
-                  <BiDislike />
+                {!dislikedorNot ? <BiDislike /> : <BiSolidDislike />}
+                  
                 </div>
                 <div className="video-like-count">{dislikeCount} </div>
               </div>

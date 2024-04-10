@@ -76,7 +76,7 @@ const Homepage = () => {
         </div>
       )}
       <div className="videos-list">
-        {allVideos.slice(1).map((video, index) => {
+        {allVideos.slice(0).map((video, index) => {
           if (allVideos.length === index + 2) {
             return (
               <div ref={lastVideoRef} key={video._id}>

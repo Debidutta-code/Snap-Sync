@@ -180,7 +180,9 @@ app.get("/get-videos", async (req, res) => {
     // Fetch videos for the requested page using skip and limit
     const videosForPage = await VideoData.find().skip(startIndex).limit(limit);
 
-    res.json(videosForPage);
+    const randomVideos = shuffleArray(videosForPage);
+
+    res.json(randomVideos);
   } catch (error) {
     console.error(error);
     res.status(500).json({ success: false, message: "Internal Server Error" });

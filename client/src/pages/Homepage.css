@@ -9,8 +9,8 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* Three columns */
     grid-gap: 0px; /* Gap between items */
-    min-height: calc(92vh);
-    max-height: calc(92vh); /* Adjusted maximum height to account for button-container */
+    min-height: calc(88vh);
+    max-height: calc(88vh); /* Adjusted maximum height to account for button-container */
     overflow-y: auto; /* Add vertical scrollbar when content overflows */
     color: white;
     width: 100%;

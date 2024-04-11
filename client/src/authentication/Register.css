@@ -3,7 +3,6 @@
 /* Main container */
 .register-container {
     display: flex;
-    justify-content: center;
     align-items: center;
     height: 92vh;
     overflow-y: hidden;

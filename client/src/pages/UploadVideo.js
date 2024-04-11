@@ -142,6 +142,8 @@ const UploadVideo = () => {
       {isUploaded && (
                 <ShowAlert message={alertMessage} onClose={handleOkClick} />
             )}
+      {!isUploaded && (
+
       <div className={`upload-video-form`}>
         <h2 className={`upload-video-heading`}>Upload Video</h2>
         <form onSubmit={handleSubmit} className={`upload-video-form`}>
@@ -243,6 +245,7 @@ const UploadVideo = () => {
           </button>
         </form>
       </div>
+      )}
     </div>
   );
 };

@@ -27,7 +27,7 @@ const LoadingSpinner = () => {
     <div className="loading-spinner-overlay">
       {/* <div className="loading-spinner"></div> */}
       <HashLoader color="#daa2ac" size={100} speedMultiplier={1.4} />
-      <h1>Your video is 💫 speeding 💫 to CloneTube Galaxy 🚀</h1>
+      <h1>Uploading to Snap Sync Galaxy</h1>
       <h1>{formatTime(time)}</h1>
     </div>
   );

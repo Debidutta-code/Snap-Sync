@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import "./MainVideoPlay.css"; // Import CSS file
 import { BiLike, BiDislike } from "react-icons/bi";
-import { IoMdDoneAll, IoMdDownload } from "react-icons/io";
+import { IoMdDownload } from "react-icons/io";
 import { useVideo } from "./VideoContext";
 import OtherVideos from "./OtherVideos";
 import Linkify from "react-linkify";

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useVideo } from "./VideoContext";
 import { useNavigate } from "react-router-dom";
 import "./History.css";
-import { HashLoader, PacmanLoader, PropagateLoader } from "react-spinners";
+import { PacmanLoader } from "react-spinners";
 
 const History = () => {
   const { userLoggedIn, userId, setVideoId, setVideoUrl, setVideoTitle } = useVideo();
